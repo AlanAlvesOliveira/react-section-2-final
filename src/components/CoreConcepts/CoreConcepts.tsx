@@ -1,29 +1,24 @@
+import { CORE_CONCEPTS } from "../../data";
+import CoreConcept from "../CoreConcept/CoreConcept";
 
-import "./CoreConcepts.css";
 
-interface CoreConceptsProps {
-  title: string;
-  description: string;
-  image: string;
-}
-
-//outra forma de fazer as props
-// function CoreConcepts(props : any){
-//   return (
-//     <li>
-//       <img src={props.image} />
-//       <h3>{props.title}</h3>
-//       <p>{props.description}</p>
-//     </li>
-//   )
-// }
-
-export default function CoreConcepts({ title, description, image }: CoreConceptsProps) {
+export default function CoreConcepts() {
   return (
-    <li>
-      <img src={image} />
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </li>
+    <section id="core-concepts">      
+      <h2>Core Concepts</h2>
+      <ul>
+
+        {/* <CoreConcepts title="Components" description="the core ui building block" image={componentImg}   />  */}
+        {/* <CoreConcepts {...CORE_CONCEPTS[0]} />
+              <CoreConcepts {...CORE_CONCEPTS[1]} />
+              <CoreConcepts {...CORE_CONCEPTS[2]} />
+              <CoreConcepts {...CORE_CONCEPTS[3]} /> */}
+
+        {CORE_CONCEPTS.map(item => (
+          <CoreConcept key={item.title} {...item} /> //key não é usando dento do custom component, mas o react usa para  gerenciar os itens
+        ))}
+
+      </ul>
+    </section>
   )
 }
