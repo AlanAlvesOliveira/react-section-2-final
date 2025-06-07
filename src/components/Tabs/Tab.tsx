@@ -7,7 +7,7 @@ interface TabsProps {
 }
 
 //no video ele chama esssas props de slots
-export default function Tabs({ children , buttons, ButtonsContainer }: TabsProps) {
+export default function Tabs({ children , buttons, ButtonsContainer = 'menu' }: TabsProps) {
     return (
         <>
             <ButtonsContainer>
